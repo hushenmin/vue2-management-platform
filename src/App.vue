@@ -1,5 +1,5 @@
 <template>
-  <el-row class="container" style="height: 100%">
+  <el-row class="container" style="height: 120%">
     <v-header :user="user"></v-header>
     <el-col :span="24" class="main">
       <el-row>
@@ -20,8 +20,9 @@
   </el-row>
 </template>
 <script>
+  /* eslint-disable */
   import header from './views/header/header.vue';
-  const ERR_OK = "000";
+  // const ERR_OK = "000";
   export default {
     data () {
       return {
@@ -29,16 +30,24 @@
       };
     },
     created () {
-      this.$http.get('/api/user').then((response) => {
-        response = response.data;
-        if (response.code === ERR_OK) {
-          this.user = response.datas;
-        }
-      });
+      let self = this
+      const user = sessionStorage.getItem('user')
+      if(user ==='admin'){
+        self.user = {name: user,dept:'宜人贷',identity:'超级管理员'}
+      }else {
+        self.user = {name: user,dept:'宜人贷',identity:'普通用户'}
+      }
+      // this.$http.get('/api/user').then((response) => {
+      //   response = response.data;
+      //   if (response.code === ERR_OK) {
+      //     this.user = response.datas;
+      //     console.log(this.user)
+      //   }
+      // });
     },
     beforeCreate () {
       if (this.$route.path === '/') {
-        this.$router.push({path: '/index'})
+        this.$router.push({path: '/yarn2'})
       }
     },
     components: {
@@ -60,7 +69,7 @@
   }
   .menu,
   .el-menu {
-    height: 100%;
+    height: 110%;
     background-color: #E6E6E6;
     position: fixed;
     float: left;
@@ -86,6 +95,5 @@
   .container .content-wrapper {
     padding: 20px;
   }
-
 </style>
 
