@@ -404,7 +404,6 @@
             "id": row.id,
             "state": "KILLED"
           }), {headers: {'Content-Type': 'application/json;charset=UTF-8'}}).then(value => {
-            console.log(value)
             let data = value.data
             if (data.state !== 'RUNNING') {
               self.$message({
