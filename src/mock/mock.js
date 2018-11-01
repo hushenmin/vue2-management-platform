@@ -5,7 +5,7 @@ import Mock from 'mockjs';
 
 export default {
   mockData () {
-    Mock.mock('/api/user', {
+    Mock.mock('/monitor/api/user', {
       "code": "000",
       "datas": {
         "name": "@cname", // 内容：npm安装后 mockjs/src/mock/random/xxx.js
@@ -13,7 +13,7 @@ export default {
         "identity": "超级管理员"
       }
     });
-    Mock.mock('/api/getTable', {
+    Mock.mock('/monitor/api/getTable', {
       "code": "000",
       "datas|5-20": [
         {
@@ -23,7 +23,7 @@ export default {
         }
       ]
     });
-    Mock.mock('/api/getOptions', {
+    Mock.mock('/monitor/api/getOptions', {
       "code": "000",
       "datas|5-7": [
         {

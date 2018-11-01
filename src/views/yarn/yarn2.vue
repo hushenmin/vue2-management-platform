@@ -127,7 +127,7 @@
       },
       getMetrics() {
         let self = this
-        self.axios.get('/api/yarn/getMetrics').then(value =>{
+        self.axios.get('/monitor/api/yarn/getMetrics').then(value =>{
           let data = value.data
           self.metricJobData.rows = [
             {"jobType": "Submitted", "number": data.clusterMetrics.appsSubmitted},
@@ -146,7 +146,7 @@
           ]
         })
         // $.ajax({
-        //   url: '/api/yarn/getMetrics',
+        //   url: '/monitor/api/yarn/getMetrics',
         //   dataType: 'json',
         //   type: 'GET',
         //   async: false,
@@ -178,7 +178,7 @@
         const memSizes = []
         const usedMemSizes = []
         const maxMemSizes = []
-        self.axios.get('api/yarn/getQueueInfo').then(value=>{
+        self.axios.get('/monitor/api/yarn/getQueueInfo').then(value=>{
           let data = value.data
           for (var i = 0; i < data.length; i++) {
             queueNames.push(data[i].queueName)
@@ -195,7 +195,7 @@
           this.cpuChart.setOption(self.getCpuOptions(self.cpulabels, queueNames, self.getCpuSeries(coreNums, usedCores, maxcoreNums)))
         })
         // $.ajax({
-        //   url: '/api/yarn/getQueueInfo',
+        //   url: '/monitor/api/yarn/getQueueInfo',
         //   dataType: 'json',
         //   type: 'GET',
         //   async: false,
@@ -409,7 +409,7 @@
       getResourceForUser() {
         let self = this
         let options = []
-        self.axios.get('/api/yarn/getResourceForUser')
+        self.axios.get('/monitor/api/yarn/getResourceForUser')
           .then(value => {
             let  data = value.data
             for (var i = 0; i < data.length; i++) {
@@ -444,7 +444,7 @@
 
 
         // $.ajax({
-        //   url: '/api/yarn/getResourceForUser',
+        //   url: '/monitor/api/yarn/getResourceForUser',
         //   dataType: 'json',
         //   type: 'GET',
         //   async: false,

@@ -18,7 +18,7 @@
         <!-- 用户名下拉菜单 -->
         <el-dropdown @command="handleCommand" class="user-name" trigger="click">
           <li>
-            <span class="el-dropdown-link">{{username}}<i
+            <span v-if="username !== ''" class="el-dropdown-link">{{username}}<i
               class="el-icon-caret-bottom"></i></span>
           </li>
           <el-dropdown-menu slot="dropdown">
@@ -43,6 +43,11 @@
     },
     created(){
       this.getUserName()
+    },
+    mounted(){
+      if (this.username === ''){
+        this.getUserName()
+      }
     },
     methods: {
       handleCommand(command) {

@@ -37,7 +37,7 @@
       }else {
         self.user = {name: user,dept:'宜人贷',identity:'普通用户'}
       }
-      // this.$http.get('/api/user').then((response) => {
+      // this.$http.get('/monitor/api/user').then((response) => {
       //   response = response.data;
       //   if (response.code === ERR_OK) {
       //     this.user = response.datas;

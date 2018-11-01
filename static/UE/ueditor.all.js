@@ -28752,7 +28752,7 @@ UE.ui = baidu.editor.ui = {};
                         if (img.className.indexOf("edui-faked-music") != -1) {
                             dialogName = "musicDialog"
                         }
-                        if (img.src.indexOf("http://maps.google.com/maps/api/staticmap") != -1) {
+                        if (img.src.indexOf("http://maps.google.com/maps/monitor/api/staticmap") != -1) {
                             dialogName = "gmapDialog"
                         }
                         if (img.getAttribute("anchorname")) {

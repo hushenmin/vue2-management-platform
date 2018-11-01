@@ -322,7 +322,7 @@
         self.memData.rows = []
 
         $.ajax({
-          url: '/api/yarn/getQueueInfo',
+          url: '/monitor/api/yarn/getQueueInfo',
           dataType: 'json',
           type: 'GET',
           success: function (data) {
@@ -353,7 +353,7 @@
       getMetrics() {
         let self = this
         $.ajax({
-          url: '/api/yarn/getMetrics',
+          url: '/monitor/api/yarn/getMetrics',
           dataType: 'json',
           type: 'GET',
           success: function (data) {
@@ -374,7 +374,7 @@
         let self = this
         self.cpuMemUsers = []
         $.ajax({
-          url: '/api/yarn/getResourceForUser',
+          url: '/monitor/api/yarn/getResourceForUser',
           dataType: 'json',
           type: "GET",
           success: function (data) {

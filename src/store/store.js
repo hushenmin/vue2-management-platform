@@ -12,7 +12,7 @@ export default new Vuex.Store({
     state: {
         accessToken: null,
         refreshToken: null,
-        loginUrl: 'http://10.141.12.33:8080/?location='
+        loginUrl: 'http://test.genie.dsp.yrd.creditease.corp/?location='
     },
     mutations: {
         [LOGIN]: (state, data) => {

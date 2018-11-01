@@ -7,7 +7,8 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/vue2-management-platform/', //为gh-pages设置，服务器配置可去掉本句用“/”
+    // assetsPublicPath: '/vue2-management-platform/', //为gh-pages设置，服务器配置可去掉本句用“/”
+    assetsPublicPath: '/monitor-frontend/', //为gh-pages设置，服务器配置可去掉本句用“/”
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -27,12 +28,12 @@ module.exports = {
         target:'http://10.141.12.32:8764',
         changeOrigin:true
       },
-      '/api': {
+      '/monitor': {
         target: 'http://localhost:9999/',
         changeOrigin: true,
-        pathRewrite: {
-          '^/api': '/monitor/api'
-        }
+        // pathRewrite: {
+        //   '^/moniotr': '/monitor/api'
+        // }
       },
 
     },

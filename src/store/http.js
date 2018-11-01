@@ -32,7 +32,7 @@ axios.interceptors.response.use(
             console.log("accessTokenCacheExpired失效啦")
                 // accessToken过期,系统自动通过refreshToken 获取最新accessToken
             refreshToken();
-          } else if (error.response.data === "error" || error.response.data === "refreshTokenCacheExpired") {
+          } else if (error.response.data === "tokenError" || error.response.data === "refreshTokenCacheExpired") {
                 // token 校验失败,重新登录
             store.commit("logout")
             window.location.href = store.state.loginUrl + window.location.href
@@ -50,6 +50,11 @@ function refreshToken() {
       if (response.data.code === 'OK') {
         store.commit("login", {accessToken: response.data.data.split("__")[0], tokenType: 'accessToken'});
         store.commit("login", {refreshToken: response.data.data.split("__")[1], tokenType: 'refreshToken'});
+      }else {
+        alert("请重新登陆")
+        console.log("refreshTokenCacheExpired失效啦")
+        store.commit("logout")
+        window.location.href = store.state.loginUrl + window.location.href
       }
     }).catch(error => {
       console.log(error);

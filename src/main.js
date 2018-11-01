@@ -36,18 +36,20 @@ let routes = [
   {
     path: '/',
     component: App,
+    redirect:'/yarn2',
     children: [
       {path: '/yarn', component: yarn, name: 'Yarn', class: 'fa-plug', hidden: true,meta:{requireAuth:true}},
       {path: '/yarn2', component: yarn2, name: 'Yarn', class: 'fa-plug',meta:{requireAuth:true}},
       {path: '/hdfs', component: hdfs, name: 'Hdfs', class: 'fa-plug',meta:{requireAuth:true}},
     ]
   },
-  {
-    path: '/yarn2',
-    component: resolve => require(['./views/yarn/yarn2'], resolve)
-  },
+  // {
+  //   path: '/yarn2',
+  //   component: resolve => require(['./views/yarn/yarn2'], resolve),meta:{requireAuth:true}
+  // },
 ];
 let router = new VueRouter({
+   base: '/monitor-frontend/',
   'mode': 'history', //去掉URL的#号，需要配置服务器http://router.vuejs.org/zh-cn/essentials/history-mode.html
   'linkActiveClass': 'active',
   routes

@@ -333,7 +333,7 @@
         let self = this
         self.app = []
         if (this.form.id === '') {
-          self.axios.get('/api/yarn/getAppsBy', {params: self.form}).then(value => {
+          self.axios.get('/monitor/api/yarn/getAppsBy', {params: self.form}).then(value => {
             let data = value.data
             if (data.apps !== null) {
               self.appPageList = data.apps.app
@@ -341,7 +341,7 @@
             }
           })
           // $.ajax({
-          //   url: '/api/yarn/getAppsBy',
+          //   url: '/monitor/api/yarn/getAppsBy',
           //   dataType: 'json',
           //   type: 'GET',
           //   async: false,
@@ -357,7 +357,8 @@
           //   }
           // })
         } else {
-          self.axios.get('/api/yarn/getAppByID/' + this.form.id).then(
+          self.axios.get('/monitor/api/yarn/getAppByID/' + this.form.id,
+            {headers:{"Content-Type": "application/json"}}).then(
             value => {
               let data = value.data
               self.app = []
@@ -371,7 +372,7 @@
           })
           // $.ajax({
           //   contentType: 'application/json;charset=UTF-8',
-          //   url: '/api/yarn/getAppByID/' + this.form.id,
+          //   url: '/monitor/api/yarn/getAppByID/' + this.form.id,
           //   dataType: 'json',
           //   type: 'GET',
           //   async: false,
@@ -400,7 +401,7 @@
           //   self.$message.error("不是admin不能执行此操作！请联系管理员！")
           //     return;
           // }
-          self.axios.post('/api/yarn/killAppByID/', JSON.stringify({
+          self.axios.post('/monitor/api/yarn/killAppByID/', JSON.stringify({
             "id": row.id,
             "state": "KILLED"
           }), {headers: {'Content-Type': 'application/json;charset=UTF-8'}}).then(value => {
@@ -419,7 +420,7 @@
           })
           // $.ajax({
           //   contentType: 'application/json;charset=UTF-8',
-          //   url: '/api/yarn/killAppByID/',
+          //   url: '/monitor/api/yarn/killAppByID/',
           //   dataType: 'json',
           //   type: 'POST',
           //   async: false,
